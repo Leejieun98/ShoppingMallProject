@@ -34,7 +34,11 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use('/api/users', require('./routes/users'));
-
+//jieun 0315. routes/product.js로 연결
+//원래는 app.post('/api/product/image',ko) 이런식으로 해도되지만 이러면 로직이 길어지니깐
+//expressJs에서 제공하는 router로 나눠서 해결
+app.use('/api/product', require('./routes/product'));
+///api/product경로에서 온건 routes폴더안의 product파일로가라
 
 //use this to show the image you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
